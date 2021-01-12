@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title> Testing for JS Dropdown</title>
+  <style>
+    div {
+      width: 50%;
+      margin: auto;
+      height: 200px;
+      border: 5px solid black;
+      background-color: silver;
+    }
+    .field {
+      padding-left: 10px;
+      width: 60px;
+      display: inline-block;
+    }
+    h2 { padding-left: 10px;}
+  </style>
+  <meta charset="utf-8">
+  <script src="prototype.js"></script>
+  <script src="JStester.js"></script>
+</head>
+<body>
+  <div>
+    <h2> Select Day-Month-Year </h2>
+    <p> <span class="field">Day </span><select id="days"> </select></p>
+    <p> <span class="field">Month</span><select id="months"> </select></p>
+    <p> <span class="field">Year</span><select id="years"></select></p>
+  </div>
+</body>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title> Testing for JS Dropdown</title>
+  <script type="text/javascript"> 
+var dt_obj= new Date();
+function addOption(selectbox,text,value )
+{
+var optn = document.createElement("OPTION");
+optn.text = text;
+optn.value = value;
+selectbox.options.add(optn);
+}
+///////////// date //////////////////
+var today_date= dt_obj.getDate();
+function addOption_list1(){
+
+for (var i=1; i < 32;++i){
+addOption(document.drop_list.days, i, i);
+if(i== today_date){document.drop_list.days.options[i].selected=true;}
+}
+addOption_list2();
+}
+//////////////End of Date //////////
+
+
+///////////// Month //////////////////
+var current_month=dt_obj.getMonth() +1;
+function addOption_list2(){
+var month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+for (var i=0; i < month.length;++i){
+addOption(document.drop_list.months, month[i], month[i]);
+if(i== current_month){document.drop_list.months.options[i].selected=true;}
+}
+addOption_list3();
+
+}
+//////////////End of Month //////////
+
+
+///////////// Year //////////////////
+var current_year=dt_obj.getFullYear();
+function addOption_list3(){
+for (var i=0; i < 7;++i){
+var j=current_year+i-2;
+match_year=current_year+i;
+addOption(document.drop_list.years, j, j);
+if((j-1)== current_year ){document.drop_list.years.options[i].selected=true;}
+}
+
+}
+//////////////End of Year //////////
+
+function monthChange(){
+	var month = document.getElementById("months").value;
+  document.getElementById("days").value ="";
+  if(month == "January" || month == "March" || month == "May" ||
+  month == "July" || month == "August" || month == "October" || month == "December"){
+  for (var i=1; i < 32;++i){
+addOption(document.drop_list.days, i, i);
+if(i== today_date){document.drop_list.days.options[i].selected=true;}
+}
+  }
+  else if ( month == "February"){
+  for (var i=1; i < 29;++i){
+addOption(document.drop_list.days, i, i);
+if(i== today_date){document.drop_list.days.options[i].selected=true;}
+}
+  }
+  else{
+  for (var i=1; i < 31;++i){
+addOption(document.drop_list.days, i, i);
+if(i== today_date){document.drop_list.days.options[i].selected=true;}
+}
+  }
+  
+}
+
+</script>
+  <style>
+    div {
+      width: 50%;
+      margin: auto;
+      height: 200px;
+      border: 5px solid black;
+      background-color: silver;
+    }
+    .field {
+      padding-left: 10px;
+      width: 60px;
+      display: inline-block;
+    }
+    h2 { padding-left: 10px;}
+  </style>
+  <meta charset="utf-8">
+  <script src="prototype.js"></script>
+  <script src="JStester.js"></script>
+</head>
+<body onload=addOption_list1();>
+<form name="drop_list">
+ <div>
+    <h2> Select Day-Month-Year </h2>
+    <p> <span class="field">Day </span><select id="days" name="days"> 
+    <option value="" >Date</option></select></p>
+    <p> <span class="field">Month</span><select id="months" name="months" onchange="monthChange()">
+    <option value="" >Month</option></select></p>
+    <p> <span class="field">Year</span><select name="years">
+      <option value="" >Year</option>
+    </select></p>
+  </div>
+</form>
+ 
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<html lang="en">
+<head>
+  <title> Testing for JS Dropdown</title>
+  <style>
+    div {
+      width: 50%;
+      margin: auto;
+      height: 200px;
+      border: 5px solid black;
+      background-color: silver;
+    }
+    .field {
+      padding-left: 10px;
+      width: 60px;
+      display: inline-block;
+    }
+    h2 { padding-left: 10px;}
+  </style>
+  <meta charset="utf-8">
+  <script src="prototype.js"></script>
+  <script src="JStester.js"></script>
+</head>
+<body>
+  <div>
+    <h2> Select Day-Month-Year </h2>
+    <p> <span class="field">Day </span><select id="days"> </select></p>
+    <p> <span class="field">Month</span><select id="months"> </select></p>
+    <p> <span class="field">Year</span><select id="years"></select></p>
+  </div>
+</body>
+</html
+
